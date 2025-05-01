@@ -6,6 +6,8 @@ import { AppComponent } from './app.component';
 import { MainComponent } from './views/main/main.component';
 import { ListCategoriesComponent } from './views/category/list-categories/list-categories.component';
 import { ListDevicesComponent } from './views/devices/list-devices/list-devices.component';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -16,7 +18,10 @@ import { ListDevicesComponent } from './views/devices/list-devices/list-devices.
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

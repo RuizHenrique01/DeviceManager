@@ -1,1 +1,47 @@
-<p>list-categories works!</p>
+<div class="category-box container-lg mt-3 shadow-none p-3 mb-5 bg-body-tertiary rounded">
+  <div class="d-flex justify-content-between gap-1">
+    <input type="text" class="form-control input-search" a ria-label="Sizing example input"
+      aria-describedby="inputGroup-sizing-default" placeholder="Search...">
+    <button type="button" class="btn btn-dark new-category-button" routerLink="/projetos/novo">+ New Category</button>
+  </div>
+
+  <table class="table mt-3">
+    <thead>
+      <tr>
+        <th scope="col">Id</th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody *ngFor="let category of listCategory">
+      <tr>
+        <th scope="row">{{category.id}}</th>
+        <td>{{category.name}}</td>
+        <td>
+          <i class="bi bi-trash3-fill text-danger action-button" style="font-size: 1.1rem;" data-bs-toggle="modal"
+            data-bs-target="#deletecategoryModal"
+            (click)="selectCategory(category)"
+            data-toggle="tooltip" data-placement="right" title="Remove a Category"></i>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<div class="modal fade" id="deletecategoryModal" tabindex="-1" aria-labelledby="exampleModalCenterTitle"
+  style="display: none;" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalCenterTitle">Delete Category!</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p>Do you want to delete the '{{categorySelected?.name}}' category?</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal" (click)="deleteCategory()">Delete</button>
+      </div>
+    </div>
+  </div>
+</div>
