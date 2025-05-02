@@ -40,7 +40,10 @@ export class ListCategoriesComponent implements OnInit {
 
   deleteCategory(){
     this.categoryService.delete(this.categorySelected!.id).subscribe({
-      next: () => this.listCategories(),
+      next: () =>{
+        this.toastService.show("Category removed successfully.", 'success');
+        this.listCategories();
+      },
       error: (err: HttpErrorResponse) => {
         this.toastService.show(err.error?.message || 'An unexpected error occurred.', 'danger');
       }
