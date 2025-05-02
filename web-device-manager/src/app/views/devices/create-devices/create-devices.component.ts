@@ -39,7 +39,7 @@ export class CreateDevicesComponent implements OnInit {
         [
           Validators.required,
           Validators.maxLength(16),
-          Validators.pattern('^[a-zA-ZÀ-ÿ\\s]*$')
+          Validators.pattern('^(?=.*[a-zA-ZÀ-ÿ])[a-zA-ZÀ-ÿ\\s]*$')
         ]
       ],
       categoryId: ['', Validators.required],

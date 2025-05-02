@@ -7,6 +7,7 @@ import {
   IsInt,
   IsAlpha,
   IsNotEmpty,
+  Matches,
 } from 'class-validator';
 
 export class CreateDeviceDto {
@@ -14,6 +15,9 @@ export class CreateDeviceDto {
   @IsNotEmpty()
   @MaxLength(16)
   @IsAlpha()
+  @Matches(/\S/, {
+    message: 'color must not be empty or contain only whitespace.',
+  })
   @ApiProperty({
     type: 'string',
     maxLength: 16,

@@ -26,7 +26,8 @@ export class CreateCategoriesComponent implements OnInit {
     this.formCategory = this.formBuilder.group({
       name: ['', Validators.compose([
         Validators.required,
-        Validators.maxLength(128)
+        Validators.maxLength(128),
+        Validators.pattern(/\S+/)
       ])]
     });
   }
