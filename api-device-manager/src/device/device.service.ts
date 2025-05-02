@@ -28,13 +28,20 @@ export class DeviceService {
   }
 
   findAll() {
-    return this.prisma.device.findMany();
+    return this.prisma.device.findMany({
+      include: {
+        category: true,
+      },
+    });
   }
 
   async findOneById(id: number) {
     const device = await this.prisma.device.findUnique({
       where: {
         id: id,
+      },
+      include: {
+        category: true,
       },
     });
 

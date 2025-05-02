@@ -101,6 +101,7 @@ describe('DeviceService', () => {
 
       expect(mockPrisma.device.findUnique).toHaveBeenCalledWith({
         where: { id: 1 },
+        include: { category: true },
       });
       expect(mockPrisma.device.delete).toHaveBeenCalledWith({
         where: { id: 1 },
