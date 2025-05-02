@@ -27,8 +27,7 @@ export class CreateCategoriesComponent implements OnInit {
       name: ['', Validators.compose([
         Validators.required,
         Validators.maxLength(128)
-      ])],
-      description: ['']
+      ])]
     });
   }
 

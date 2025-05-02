@@ -4,6 +4,7 @@ import { MainComponent } from './views/main/main.component';
 import { ListCategoriesComponent } from './views/category/list-categories/list-categories.component';
 import { ListDevicesComponent } from './views/devices/list-devices/list-devices.component';
 import { CreateCategoriesComponent } from './views/category/create-categories/create-categories.component';
+import { CreateDevicesComponent } from './views/devices/create-devices/create-devices.component';
 
 const routes: Routes = [
   {
@@ -26,7 +27,11 @@ const routes: Routes = [
       {
         path: 'device', // child route path
         component: ListDevicesComponent, // child route component that the router renders
-      }
+      },
+      {
+        path: 'new-device', // child route path
+        component: CreateDevicesComponent, // child route component that the router renders
+      },
     ]
   }
 ];

@@ -9,6 +9,7 @@ import { ListDevicesComponent } from './views/devices/list-devices/list-devices.
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CreateCategoriesComponent } from './views/category/create-categories/create-categories.component';
+import { CreateDevicesComponent } from './views/devices/create-devices/create-devices.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { CreateCategoriesComponent } from './views/category/create-categories/cr
     MainComponent,
     ListCategoriesComponent,
     ListDevicesComponent,
-    CreateCategoriesComponent
+    CreateCategoriesComponent,
+    CreateDevicesComponent
   ],
   imports: [
     BrowserModule,
