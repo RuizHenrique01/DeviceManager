@@ -1,7 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { ToastService } from 'src/app/services/toast.service';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { CategoryService } from 'src/app/services/category.service';
+import { HttpErrorResponse } from '@angular/common/http';
+
 
 @Component({
   selector: 'app-create-categories',
@@ -14,8 +17,9 @@ export class CreateCategoriesComponent implements OnInit {
 
   constructor(
     private formBuilder: FormBuilder,
-    private categoryService: CategoryService,
     private router: Router,
+    private categoryService: CategoryService,
+    private toastService: ToastService,
   ) { }
 
   ngOnInit(): void {
@@ -34,8 +38,14 @@ export class CreateCategoriesComponent implements OnInit {
       return;
     }
 
-    this.categoryService.criar(this.formCategory.value).subscribe(() => {
-      this.router.navigate(['/device-manager/category'])
+    this.categoryService.criar(this.formCategory.value).subscribe({
+      next: () => {
+        this.toastService.show('Category added successfully!', 'success');
+        this.router.navigate(['/device-manager/category']);
+      },
+      error: (err: HttpErrorResponse) => {
+        this.toastService.show(err.error?.message || 'An unexpected error occurred.', 'danger');
+      }
     });
   }
 
