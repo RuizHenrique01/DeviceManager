@@ -5,6 +5,7 @@ import {
 } from '@nestjs/common';
 import { PrismaService } from 'src/prisma/prisma.service';
 import { CreateCategoryDto } from './dto/create-category.dto';
+import { PrismaClientKnownRequestError } from '@prisma/client/runtime/library';
 
 @Injectable()
 export class CategoryService {
@@ -48,10 +49,22 @@ export class CategoryService {
 
   async delete(id: number) {
     await this.findOneById(id);
-    return await this.prisma.category.delete({
-      where: {
-        id: id,
-      },
-    });
+    try {
+      return await this.prisma.category.delete({
+        where: {
+          id: id,
+        },
+      });
+    } catch (error) {
+      if (error instanceof PrismaClientKnownRequestError) {
+        if (error.code === 'P2003') {
+          throw new BadRequestException(
+            'This category is associated with one or more devices. Please remove the linked devices before deleting the category.',
+          );
+        }
+
+        throw error;
+      }
+    }
   }
 }
