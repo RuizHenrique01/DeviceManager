@@ -19,4 +19,8 @@ export class CategoryService {
   delete(id: number):Observable<Category>{
     return this.http.delete<Category>(this.API + `/${id}`);
   }
+
+  criar(category: Category): Observable<Category> {
+    return this.http.post<Category>(this.API, category);
+  }
 }

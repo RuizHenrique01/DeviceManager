@@ -1,8 +1,9 @@
 <div class="category-box container-lg mt-3 shadow-none p-3 mb-5 bg-body-tertiary rounded">
+  <p class="h2 mb-3">Categories</p>
   <div class="d-flex justify-content-between gap-1">
     <input type="text" class="form-control input-search" a ria-label="Sizing example input"
-      aria-describedby="inputGroup-sizing-default" placeholder="Search...">
-    <button type="button" class="btn btn-dark new-category-button" routerLink="/projetos/novo">+ New Category</button>
+      aria-describedby="inputGroup-sizing-default" placeholder="Search..." [(ngModel)]="searchTerm">
+    <button type="button" class="btn btn-dark new-category-button" routerLink="/device-manager/new-category">+ New Category</button>
   </div>
 
   <table class="table mt-3">
@@ -13,7 +14,7 @@
         <th scope="col"></th>
       </tr>
     </thead>
-    <tbody *ngFor="let category of listCategory">
+    <tbody *ngFor="let category of filteredCategories()">
       <tr>
         <th scope="row">{{category.id}}</th>
         <td>{{category.name}}</td>

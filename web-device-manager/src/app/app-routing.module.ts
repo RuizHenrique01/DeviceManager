@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { MainComponent } from './views/main/main.component';
 import { ListCategoriesComponent } from './views/category/list-categories/list-categories.component';
 import { ListDevicesComponent } from './views/devices/list-devices/list-devices.component';
+import { CreateCategoriesComponent } from './views/category/create-categories/create-categories.component';
 
 const routes: Routes = [
   {
@@ -17,6 +18,10 @@ const routes: Routes = [
       {
         path: 'category', // child route path
         component: ListCategoriesComponent, // child route component that the router renders
+      },
+      {
+        path: 'new-category', // child route path
+        component: CreateCategoriesComponent, // child route component that the router renders
       },
       {
         path: 'device', // child route path

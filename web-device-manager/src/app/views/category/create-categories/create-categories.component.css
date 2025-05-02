@@ -1,0 +1,4 @@
+.error-form {
+  color: var(--bs-danger);
+  display: inline-block;
+}

@@ -11,6 +11,7 @@ export class ListCategoriesComponent implements OnInit {
 
   listCategory: Category[] = [];
   categorySelected?: Category;
+  searchTerm: string = '';
 
   constructor(private categoryService: CategoryService) { }
 
@@ -20,6 +21,12 @@ export class ListCategoriesComponent implements OnInit {
 
   listCategories() {
     this.categoryService.list().subscribe(r => this.listCategory = r);
+  }
+
+  filteredCategories(): Category[] {
+    return this.listCategory.filter(category =>
+      category.name.toLowerCase().includes(this.searchTerm.toLowerCase())
+    );
   }
 
   selectCategory(category: Category){

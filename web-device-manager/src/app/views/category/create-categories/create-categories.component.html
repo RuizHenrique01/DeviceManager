@@ -1,0 +1,25 @@
+<div class="project-box container-md mt-5 shadow-none p-3 mb-5 bg-body-tertiary rounded">
+  <p class="h2">New Category</p>
+  <form [formGroup]="formCategory" (ngSubmit)="onSubmit()">
+    <div class="mb-3 mt-4">
+      <label for="categoryName" class="form-label">Name:</label>
+      <input
+        type="text"
+        class="form-control"
+        id="categoryName"
+        formControlName="name"
+        required
+      >
+      <span class="error-form mt-2" *ngIf="formCategory.get('name')?.errors?.['required'] && formCategory.get('name')?.touched">
+        Category name is required!
+      </span>
+      <span class="error-form mt-2" *ngIf="formCategory.get('name')?.errors?.['maxlength'] && (formCategory.get('name')?.touched || formCategory.get('name')?.valueChanges)">
+        Category name must not exceed 128 characters.
+      </span>
+    </div>
+    <div class="d-flex gap-2 justify-content-end">
+      <button type="button" class="btn btn-light" routerLink="/device-manager/category">Cancel</button>
+      <button type="submit" class="btn btn-dark" [disabled]="formCategory.invalid">Add</button>
+    </div>
+  </form>
+</div>

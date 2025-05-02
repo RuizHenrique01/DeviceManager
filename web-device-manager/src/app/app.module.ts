@@ -8,13 +8,15 @@ import { ListCategoriesComponent } from './views/category/list-categories/list-c
 import { ListDevicesComponent } from './views/devices/list-devices/list-devices.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { CreateCategoriesComponent } from './views/category/create-categories/create-categories.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MainComponent,
     ListCategoriesComponent,
-    ListDevicesComponent
+    ListDevicesComponent,
+    CreateCategoriesComponent
   ],
   imports: [
     BrowserModule,
