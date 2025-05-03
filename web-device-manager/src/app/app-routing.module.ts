@@ -5,6 +5,7 @@ import { ListCategoriesComponent } from './views/category/list-categories/list-c
 import { ListDevicesComponent } from './views/devices/list-devices/list-devices.component';
 import { CreateCategoriesComponent } from './views/category/create-categories/create-categories.component';
 import { CreateDevicesComponent } from './views/devices/create-devices/create-devices.component';
+import { PageNotFoundComponent } from './views/page-not-found/page-not-found.component';
 
 const routes: Routes = [
   {
@@ -33,6 +34,10 @@ const routes: Routes = [
         component: CreateDevicesComponent, // child route component that the router renders
       },
     ]
+  },
+  {
+      path: '**',
+      component: PageNotFoundComponent
   }
 ];
 
