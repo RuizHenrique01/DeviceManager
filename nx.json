@@ -1,0 +1,10 @@
+{
+  "installation": {
+    "version": "20.8.1",
+    "plugins": {
+      "@nx/angular": "20.8.1"
+    }
+  },
+  "$schema": "./node_modules/nx/schemas/nx-schema.json",
+  "defaultBase": "master"
+}
