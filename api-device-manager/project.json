@@ -1,0 +1,64 @@
+{
+    "name": "api-device-manager",
+    "$schema": "../../node_modules/nx/schemas/project-schema.json",
+    "sourceRoot": "api-device-manager/src",
+    "projectType": "application",
+    "tags": [],
+    "targets": {
+      "serve": {
+        "executor": "nx:run-commands",
+        "options": {
+          "command": "cd api-device-manager && npx prisma generate && npx prisma migrate deploy && npm run start"
+        }
+      },
+      "install": {
+        "executor": "nx:run-commands",
+        "options": {
+          "command": "cd api-device-manager && npm install"
+        }
+      },
+      "test": {
+        "executor": "nx:run-commands",
+        "options": {
+          "commands": [
+            {
+              "command": "cd api-device-manager && npm run test -- --verbose"
+            },
+            {
+              "command": "cd api-device-manager && npm run test:e2e -- --verbose"
+            }
+          ],
+          "parallel": false
+        }
+      },
+      "build": {
+        "executor": "@nx/nest:build",
+        "outputs": ["{options.outputPath}"],
+        "options": {
+          "outputPath": "dist/api-device-manager",
+          "main": "api-device-manager/src/main.ts",
+          "tsConfig": "api-device-manager/tsconfig.app.json",
+          "assets": ["api-device-manager/src/assets"]
+        },
+        "configurations": {
+          "production": {
+            "optimization": true,
+            "extractLicenses": true,
+            "fileReplacements": [
+              {
+                "replace": "api-device-manager/src/environments/environment.ts",
+                "with": "api-device-manager/src/environments/environment.prod.ts"
+              }
+            ]
+          }
+        }
+      },
+      "lint": {
+        "executor": "@nx/eslint:lint",
+        "options": {
+          "lintFilePatterns": ["api-device-manager/**/*.ts"]
+        }
+      }
+    }
+  }
+  

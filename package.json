@@ -1,0 +1,22 @@
+{
+  "name": "devicemanager",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "install:all": "nx run-many --parallel --target=install --projects=web-device-manager,api-device-manager",
+    "start:all": "nx run-many --parallel --target=serve --projects=web-device-manager,api-device-manager",
+    "test:all": "nx run-many --parallel --target=test --projects=api-device-manager"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "@angular-devkit/core": "~19.2.0",
+    "@nestjs/schematics": "^10.0.1",
+    "@nx/angular": "^20.8.1",
+    "@nx/nest": "^20.8.1",
+    "nx": "20.8.1"
+  },
+  "nx": {},
+  "dependencies": {}
+}

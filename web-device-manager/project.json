@@ -1,0 +1,49 @@
+{
+  "name": "web-device-manager",
+  "$schema": "../node_modules/nx/schemas/project-schema.json",
+  "projectType": "application",
+  "sourceRoot": "web-device-manager/src",
+  "targets": {
+    "run": {
+      "executor": "@nrwl/angular:ng-cli",
+      "options": {
+        "command": "ng serve",
+        "args": [
+          "--port=4200",
+          "--open"
+        ]
+      }
+    },
+    "serve": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "cd web-device-manager && npm run start"
+      }
+    },
+    "install": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "cd web-device-manager && npm install"
+      }
+    },
+    "build": {
+      "executor": "@nrwl/angular:browser",
+      "options": {
+        "outputPath": "dist/web-device-manager",
+        "index": "web-device-manager/src/index.html",
+        "main": "web-device-manager/src/main.ts",
+        "polyfills": "web-device-manager/src/polyfills.ts",
+        "tsConfig": "web-device-manager/tsconfig.app.json",
+        "aot": true,
+        "assets": [
+          "web-device-manager/src/favicon.ico",
+          "web-device-manager/src/assets"
+        ],
+        "styles": [
+          "web-device-manager/src/styles.css"
+        ],
+        "scripts": []
+      }
+    }
+  }
+}

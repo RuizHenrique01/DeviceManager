@@ -1,0 +1,10 @@
+
+.nx/installation
+.nx/cache
+.nx/workspace-data
+.angular
+
+# Node
+/node_modules
+npm-debug.log
+yarn-error.log
