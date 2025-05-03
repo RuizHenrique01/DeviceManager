@@ -1,5 +1,9 @@
 FROM node:20.13.1 AS build
 
+ARG API=""
+
+ENV API=${API}
+
 WORKDIR /app
 
 COPY package*.json ./

@@ -1,0 +1,50 @@
+version: "3.0"
+
+services:
+  mysql-device-manager:
+    image: mysql:8.0
+    container_name: mysql-device-manager
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: device_manager_db
+      MYSQL_PASSWORD: root
+    ports:
+      - "3333:3306"
+    volumes:
+      - ./my.cnf:/etc/mysql/my.cnf
+      - db_data:/var/lib/mysql
+    command: --default-authentication-plugin=mysql_native_password --bind-address=0.0.0.0
+    networks:
+      - device-manager
+
+  web-device-manager:
+    image:  web-device-manager
+    container_name:  web-device-manager
+    build: 
+      context: ./web-device-manager
+      args:
+        - API=http://localhost:3000
+    ports:
+      - "4200:80"
+    networks:
+      - device-manager
+
+  api-device-manager:
+    build: ./api-device-manager
+    image:  api-device-manager
+    container_name:  api-device-manager
+    ports:
+      - "3000:3000"
+    environment:
+      DATABASE_URL: mysql://root:root@mysql-device-manager:3306/device_manager_db
+    depends_on:
+      - mysql-device-manager
+    networks:
+      - device-manager
+
+volumes:
+  db_data:
+
+networks:
+  device-manager:
+    driver: bridge
