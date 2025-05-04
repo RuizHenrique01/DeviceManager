@@ -110,10 +110,7 @@ docker build -t web-device-manager --build-arg API=https://your-production-api-u
 ### 🚀 Run the container
 
 ```bash
-docker run -d \
-  -p 4200:80 \
-  --name web-device-manager \
-  web-device-manager
+docker run -d -p 4200:80 --name web-device-manager web-device-manager
 ```
 
 > This will serve the built Angular application on port 4200 through NGINX.
