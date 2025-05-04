@@ -6,12 +6,12 @@ RESTful API built with NestJS to manage devices and their operations. This proje
 
 ## 📚 Table of Contents
 
-- [🛠️ Technologies Used](#-technologies-used)
+- [🛠️ Technologies Used](#technologies-used)
 - [📦 Cloning the Repository and Accessing the Folder](#-cloning-the-repository-and-accessing-the-folder)
 - [📥 Installing Dependencies](#-installing-dependencies)
-- [⚙️ Environment Configuration](#-environment-configuration)
+- [⚙️ Environment Configuration](#environment-configuration)
 - [🔧 Prisma Setup](#-prisma-setup)
-- [🖥️ Running Locally (Manual Execution)](#-running-locally-manual-execution)
+- [🖥️ Running Locally (Manual Execution)](#running-locally-manual-execution)
 - [🧪 Testing](#-testing)
 - [🐳 Running with Docker](#-running-with-docker)
 - [📘 API Documentation (Swagger)](#-api-documentation-swagger)
@@ -19,6 +19,7 @@ RESTful API built with NestJS to manage devices and their operations. This proje
 
 ---
 
+<a name="technologies-used"></a>
 ## 🛠️ Technologies Used
 
 - **Node.js** `v20.13.1`
@@ -51,7 +52,7 @@ cd DeviceManager/api-device-manager
 ```bash
 npm install
 ```
-
+<a name="environment-configuration"></a>
 ## ⚙️ Environment Configuration
 
 Before running the project, you must create a .env file in the root of the api-device-manager folder.
@@ -79,6 +80,7 @@ npx prisma migrate deploy
 
 > ⚠️ Prisma setup is essential for the project to work properly.
 
+<a name="running-locally-manual-execution"></a>
 ## 🖥️ Running Locally (Manual Execution)
 
 You can run the project manually using the following NPM scripts:
