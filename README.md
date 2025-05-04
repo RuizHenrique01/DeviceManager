@@ -71,37 +71,35 @@ This installs the necessary runtime and development dependencies for both the fr
 
 For the API Device Manager to work, it's essential to configure Prisma properly and create the `.env` file for environment variables.
 
-### Prisma Configuration
+### 📄 Environment Variables
 
-Make sure that Prisma is configured properly for your database. After setting up the .env file, run:
-
-```bash
-npx prisma generate
-npx prisma migrate deploy
-```
-
-This ensures the Prisma client is generated, and the database migrations are applied correctly.
-
-### .env Configuration for API Device Manager
-
-The .env file is essential for the API to work correctly. Make sure to set it up in the `api-device-manager` folder:
+Create a `.env` file in the `api-device-manager` folder with the following example content:
 
 ```bash
 # Example .env file configuration
 DATABASE_URL="mysql://root:root@localhost:3306/device_manager_db"
 ```
 
+> ⚠️ This file is required for the backend to function properly.
+
 <a name="important-prisma-configuration"></a>
 
 ## ⚠️ Important Prisma Configuration
 
-Before running the API, it is crucial to configure Prisma and the database connection properly:
+Before running the API (`api-device-manager`), it is crucial to configure Prisma and the database connection properly:
+
+Run the following commands inside the `api-device-manager` folder:
 
 - Generate the Prisma client
 
 - Apply migrations to set up the database schema
 
-These steps must be followed for the API to interact correctly with the database.
+```bash
+npx prisma generate
+npx prisma migrate deploy
+```
+
+> ⚠️ These steps are required so Prisma can communicate with the database and apply the schema.
 
 <a name="running-projects-individually"></a>
 
